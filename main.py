@@ -18,7 +18,7 @@ def update_value(input_data):
         return str(float(input_data)**2)
     except:
         return "Some error"
-if __name__ == '__main__':
-    app.run_server()
+# if __name__ == '__main__':
+#     app.run_server()
     # pd.read_csv("SPX.csv")
     # pd.read_csv("YieldCurve.csv")
