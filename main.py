@@ -3,6 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import pandas_datareader.data as web
+import pandas as pd
 import datetime
 
 app = dash.Dash()
@@ -23,6 +24,8 @@ def update_graph(input_data):
     start = datetime.datetime(2015, 1, 1)
     end = datetime.datetime.now()
     df = web.DataReader(input_data, 'yahoo', start, end)
+    pd.read_csv("SPX.csv")
+    pd.read_csv("YieldCurve")
     return dcc.Graph(
             id='example-graph',
             figure={

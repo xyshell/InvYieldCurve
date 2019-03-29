@@ -2,3 +2,4 @@ dash==0.40.0
 gunicorn==19.9.0
 plotly==3.7.1
 pandas_datareader==0.7.0
+pandas==0.24.2
