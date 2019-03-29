@@ -20,7 +20,7 @@ cffi==1.11.5
 chardet==3.0.4
 Click==7.0
 cloudpickle==0.6.1
-conda==4.5.12
+conda==4.3.16
 cryptography==2.4.2
 cycler==0.10.0
 dash==0.40.0
