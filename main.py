@@ -1,24 +1,27 @@
+import os
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-# import pandas as pd
 
-app = dash.Dash()
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app.layout = html.Div(children=[
-    dcc.Input(id='input', value='Enter something', type='text'),
-    html.Div(id='output')
-    ])
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-@app.callback(
-    dash.dependencies.Output(component_id='output', component_property='children'),
-    [dash.dependencies.Input(component_id='input', component_property='value')])
-def update_value(input_data):
-    try:
-        return str(float(input_data)**2)
-    except:
-        return "Some error"
+app.layout = html.Div([
+    html.H2('Hello World'),
+    dcc.Dropdown(
+        id='dropdown',
+        options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
+        value='LA'
+    ),
+    html.Div(id='display-value')
+])
+
+@app.callback(dash.dependencies.Output('display-value', 'children'),
+              [dash.dependencies.Input('dropdown', 'value')])
+def display_value(value):
+    return 'You have selected "{}"'.format(value)
+
 if __name__ == '__main__':
-    app.run_server()
-    # pd.read_csv("SPX.csv")
-    # pd.read_csv("YieldCurve.csv")
+    app.run_server(debug=True)
