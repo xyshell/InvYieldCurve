@@ -212,12 +212,12 @@ def update_time_range(input_period):
         )        
 
 
-# # update time range -> timing
-# @app.callback(
-#     Output('timing', 'children'),
-#     [Input('range', 'value')])
-# def update_timing(input_range):
-#     return pd.read_csv('slice_df1.csv').set_index('DATE').index[input_range]
+# update time range -> timing
+@app.callback(
+    Output('timing', 'children'),
+    [Input('range', 'value')])
+def update_timing(input_range):
+    return pd.read_csv('slice_df1.csv').set_index('DATE').index[input_range]
 
 # # update graph YieldCurve
 @app.callback(
